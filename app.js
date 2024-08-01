@@ -25,7 +25,7 @@ db.mongoose.connect(db.url, mongooseConfig)
         process.exit();
     })
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json())
 
 

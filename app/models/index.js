@@ -9,7 +9,7 @@ module.exports = {
     user: require('./userModel')(mongoose),
     product: require('./ProductModel')(mongoose),
     role: require('./roleModel')(mongoose),
-    category: require('./categoryModel')(mongoose)
+    category: require('./categoryModel')(mongoose),
 
 
 }

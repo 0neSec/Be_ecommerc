@@ -6,7 +6,7 @@ const authRoutes = require('./auth/authRoutes');
 const categoryRoutes = require('./category/categoryRoutes');
 const cartRoutes = require('./cart/cartRoutes');
 const verifyRoutes = require('./auth/verifyRoutes');
-const orderRoutes = require('./order/orderRoutes');
+const orderRoutes = require('./order/');
 
 
 mainRouts.get('/', (req, res) => {
@@ -20,6 +20,7 @@ mainRouts.use('/api', categoryRoutes);
 mainRouts.use('/api', cartRoutes);
 mainRouts.use('/api', verifyRoutes);
 mainRouts.use('/api', orderRoutes);
+
 
 
 

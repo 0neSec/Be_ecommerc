@@ -90,3 +90,21 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Get products by category name
+exports.getProductsByCategory = async (req, res) => {
+  try {
+    const categoryName = req.params.categoryName;
+    
+    // Find the category by name
+    const category = await Category.findOne({ name: categoryName });
+    if (!category) {
+      return res.status(404).json({ message: 'Category not found' });
+    }
+    
+    const products = await Product.find({ category: category._id }).populate('category', 'name');
+    
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};  

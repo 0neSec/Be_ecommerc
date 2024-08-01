@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Category = require('../../models/categoryModel');
 
 // Get all categories
@@ -26,11 +27,12 @@ exports.getCategoryById = async (req, res) => {
 // Create a new category
 exports.createCategory = async (req, res) => {
   try {
-    const { name, description } = req.body;
+    const { name, description, link } = req.body; 
 
     const newCategory = new Category({
       name,
-      description
+      description,
+      link 
     });
 
     const savedCategory = await newCategory.save();
@@ -43,11 +45,11 @@ exports.createCategory = async (req, res) => {
 // Update a category
 exports.updateCategory = async (req, res) => {
   try {
-    const { name, description } = req.body;
+    const { name, description, link } = req.body; 
 
     const updatedCategory = await Category.findByIdAndUpdate(
       req.params.id,
-      { name, description },
+      { name, description, link }, // Update the link
       { new: true }
     );
 

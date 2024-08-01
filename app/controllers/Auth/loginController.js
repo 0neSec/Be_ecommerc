@@ -35,7 +35,23 @@ exports.loginUser = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     console.log('Token generated for user:', user._id);
 
-    res.status(200).json({ token });
+    // Prepare user data to send
+    const userData = {
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      // Add any other non-sensitive user data you want to include
+    };
+
+    // Log the data that will be sent
+    console.log('Data to be sent:', {
+      token,
+      user: userData
+    });
+
+    // Send the response
+    res.status(200).json({ token, user: userData });
+
   } catch (error) {
     console.log('Error during login:', error.message);
     res.status(500).json({ message: error.message });

@@ -3,7 +3,7 @@ const router = express.Router();
 const {authenticateToken, isAdmin} = require('../../middlewares/authMiddleware');
 const { createOrder } = require('../../controllers/order/createOrder');
 const { getUserOrders, getOrderById } = require('../../controllers/order/getOrder');
-const { updateOrderStatus, deleteOrder } = require('../../controllers/order/PutOrder');
+const { updateOrderStatus, deleteOrder } = require('../../controllers/order/putOrder');
 
 
 // Create a new order

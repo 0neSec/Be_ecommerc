@@ -60,6 +60,9 @@ exports.registerUser = async (req, res) => {
     });
     const savedUser = await newUser.save();
 
+    // Log success message
+    console.log(`User registered successfully with email `);
+
     // Send verification email
     const verificationUrl = `http://localhost:5000/api/verify-email?token=${verificationToken}`;
     await transporter.sendMail({

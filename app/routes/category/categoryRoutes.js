@@ -4,10 +4,10 @@ const categoryController = require('../../controllers/category/categoryControlle
 const {authenticateToken, isAdmin} = require('../../middlewares/authMiddleware');
 
 // Get all categories
-router.get('/category',  authenticateToken,categoryController.getAllCategories);
+router.get('/category',  categoryController.getAllCategories);
 
 // Get a single category by ID
-router.get('/category/:id',  authenticateToken,categoryController.getCategoryById);
+router.get('/category/:id',  categoryController.getCategoryById);
 
 // Create a new category (admin only)
 router.post('/category', authenticateToken, isAdmin, categoryController.createCategory);

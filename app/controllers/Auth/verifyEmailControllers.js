@@ -1,5 +1,6 @@
 const User = require('../../models/userModel');
 
+
 exports.verifyEmail = async (req, res) => {
     try {
       const { token } = req.query;
